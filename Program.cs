@@ -17,7 +17,7 @@ namespace Exercise
                         case 1: CheckNumber();
                             break;
 
-                        case 2: Console.WriteLine("EX2 ");
+                        case 2: CheckNumberAndAgain();
                             break;
 
                         case 3: LandscapeOrPotrait();
@@ -47,8 +47,8 @@ namespace Exercise
         {
             Console.WriteLine();
             Console.WriteLine("---- MENU ----");
-            Console.WriteLine(" 1 - Check number between 1 and 10 ");
-            Console.WriteLine(" 2 -  EX2 ");
+            Console.WriteLine(" 1 - Check number between 1 and 10 ver1");
+            Console.WriteLine(" 2 - Check number between 1 and 10 ver2");
             Console.WriteLine(" 3 - Image portrait or landscape? ");
             Console.WriteLine(" 4 - Check Speed ");
             Console.WriteLine(" 5 - Calculator ");
@@ -64,13 +64,32 @@ namespace Exercise
 
             if (num >= 1 && num <= 10)
             { 
-                    Console.WriteLine("The number is valid. - " + num);
+                Console.WriteLine("The number " + num +" is valid. ");
             } 
             else
             {
-                Console.WriteLine("The number is invalid. - " + num);
+                Console.WriteLine("The number " + num + " is invalid. ");
             }
          }
+
+        /* EX2. 
+         * Check if number from user is between 1 and 10. When invalid ask for a new number.
+         */
+        static void CheckNumberAndAgain()
+        {
+            Console.Write("Write a number between 1 and 10: ");
+            int num = Convert.ToInt32(Console.ReadLine());
+
+            if (num >= 1 && num <= 10)
+            {
+                Console.WriteLine("The number " + num + " is valid. ");
+            }
+            else
+            {
+                Console.WriteLine("The number " + num + " is invalid. ");
+                CheckNumberAndAgain();
+            }
+        }
 
         /* EX3. 
             * The user to enter the width and height of an image. Then tell if the image is landscape or portrait.
@@ -182,7 +201,7 @@ namespace Exercise
                 Console.WriteLine("0 is not a valid number.");
                 return;
             }
-            int sum = num1 / num2;
+            float sum = (float)num1 / num2;
             Console.WriteLine(num1 + " / " + num2 + " = " + sum);
         }
 
